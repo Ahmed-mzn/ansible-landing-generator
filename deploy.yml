@@ -1,0 +1,14 @@
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  become: True
+  vars:
+    ansible_become_password: "Zeini1963"
+    domain: 'default.domain'
+    app_id: 'app_id'
+    template: 'template_one'
+  roles:
+    - role: 'landing_generator/landing-deploy/app'
+      tags: ['app']
+    - role: 'landing_generator/landing-deploy/nginx'
+      tags: ['nginx']
